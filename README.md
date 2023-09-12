@@ -32,6 +32,18 @@ remove_watermark(
 
 ```
 
+## Usage
+
+```bash
+# For Debian based system
+apt install python3-pip python3-venv libcairo-dev libgirepository1.0-dev
+python3 -m venv watermark
+source watermark/bin/activate
+pip install -r requirements.txt
+
+python inference.py --help
+```
+
 
 ## __This is the implementation of paper [Deep Image Prior](https://dmitryulyanov.github.io/deep_image_prior), all credit goes its authors.__
 
@@ -152,6 +164,10 @@ Okay, enough talk.
 The first step is to create an overlay containing strokes, that hides the watermark.
 
 I'm simply using MS Paint for that. And per image, it hardly takes 1 minute to draw.
+
+For Linux, one can use GIMP to load the image, add a layer, and draw with the paintbrush tool.
+After drawing, hide the original image's layer and export the mask layer as jpg, this should also make the background all white.
+PNG with transparent background seems not working properly (maybe working with white bg).
 
 Here are some sample overlays...
 
